@@ -12,16 +12,15 @@ import java.util.Scanner;
 
 public class Challenge013 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3);
 
-        try {
+        try (Scanner scanner = new Scanner(System.in)) {
+            List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3);
             System.out.println("Forneça o valor inteiro inicial do intervalo: ");
             int initialValue = scanner.nextInt();
             System.out.println("Agora forneça o valor inteiro final do intervalo: ");
             int finalValue = scanner.nextInt();
 
-            List<Integer> filteredNumbers =  numbers.stream()
+            List<Integer> filteredNumbers = numbers.stream()
                     .distinct() // Evitar números repetidos
                     .sorted() // Não é necessário, é mais por uma questão visual
                     .filter(number -> number >= initialValue && number <= finalValue) // Intervalo
@@ -34,8 +33,6 @@ public class Challenge013 {
             System.out.println(message);
         } catch (InputMismatchException e) {
             System.out.println("Entrada inválida, digite somente valores inteiros.");
-        } finally {
-            scanner.close(); // Fechar o scanner mesmo que ocorra uma exceção
         }
     }
 }
