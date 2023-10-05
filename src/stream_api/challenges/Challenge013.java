@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class Challenge013 {
     public static void main(String[] args) {
 
+        // A implementação abaixo é um try-with-resources que garante que os recursos sejam fechados automaticamente (Automatic Resource Management)
         try (Scanner scanner = new Scanner(System.in)) {
             List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3);
             System.out.println("Forneça o valor inteiro inicial do intervalo: ");
