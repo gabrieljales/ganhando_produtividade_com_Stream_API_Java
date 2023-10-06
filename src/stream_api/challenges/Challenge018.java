@@ -14,14 +14,10 @@ import java.util.List;
 public class Challenge018 {
     public static void main(String[] args) {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3);
-        List<Boolean> result = new ArrayList<>();
 
-        numbers.forEach(number1 -> {
-            boolean targetNumber = numbers.stream().allMatch(number2 -> number2.equals(number1));
-            result.add(targetNumber);
-        });
+        boolean allNumbersAreEqual = numbers.stream()
+                .allMatch(number -> number.equals(numbers.get(0)));
 
-        boolean allNumbersAreEqual = result.stream().allMatch(value -> value);
         String message = allNumbersAreEqual ? "Todos os números são iguais!" : "Há números diferentes na lista!";
 
         System.out.println(message);
